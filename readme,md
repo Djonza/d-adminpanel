@@ -1,0 +1,11 @@
+Export to check if player is admin and is on duty:
+
+ local isAdmin = exports['d-adminpanel']:IsPlayerAdminAndOnDuty(source)
+
+Adding new logs example:
+
+local message = string.format("%s (%s) teleported to %s (ID: %d).", adminGroup, adminName, playerName, playerId)
+TriggerClientEvent("d-adminpanel:addLog", -1, "ADMIN", message)
+
+Any other support is available on our Discord server. Suggesstions and script updates as well.
+https://discord.gg/4QXR8xCamK
