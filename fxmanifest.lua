@@ -16,16 +16,11 @@ shared_scripts {
 client_scripts {
     'client.lua',
     'duty-client.lua',
-    'id-client.lua',
-    'client-commands.lua',
-    'admintag_cl.lua'
 }
 
 server_scripts {
     'server.lua',
     'duty-server.lua',
-    'id-server.lua',
-    'admintag_sv.lua',
     'server-commands.lua',
     "server-staffchat.lua",
     '@oxmysql/lib/MySQL.lua'
