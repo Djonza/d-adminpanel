@@ -1,0 +1,47 @@
+{
+  "error": "Something went wrong. Please contact support.",
+  "no_access": "You don't have access to this command.",
+  "server_name": "Server name >",
+  "title": "Admin menu",
+  "steam_name": "Steam Name: %s",
+  "no_player_found": "Player not found.",
+  "warn_id_invalid": "Warn id is not valid",
+  "warn_removed": "Warn is removed",
+
+  "goto": "Goto",
+  "bring": "Bring",
+  "teleport_to_self": "You cannot teleport to yourself.",
+  "teleported_to_player": "You have teleported to {targetName}.",
+  "admin_teleported_to_you": "Admin {adminName} has teleported to you.",
+  "goto_message": "Teleporting to {targetName}.",
+  "player_brought": "You have brought %s",
+  "player_brought_you": "%s has brought you!",
+
+  "player_kicked_message": "You have been kicked by %s for: %s",
+  "player_kicked_by_admin": "You have kicked player %s for: %s",
+  "player_kicked_discord_message": "%s kicked %s for: %s",
+
+
+  "player_revived": "Player revived.",
+  "heal_player_title": "Heal player",
+  "player_healed": "Player healed.",
+
+
+  "private_message": "Private message from:",
+  "spectating_player": "You are now spectating %s",
+  "you_stopped_spectating": "You have stopped spectating",
+
+ "warn_usage": "Invalid command usage. Use: /warn [ID] [REASON]",
+  "player_warned": "Player {name} has been warned for: {reason}. Total warnings: {warn_count}.",
+  "no_warns": "This player has not been warned yet.",
+  "player_warn_received": "You were warned for: {reason}. You now have: {warn_count} warnings.",
+
+
+
+
+
+  "enter_duty_message": "You have entered staff duty.",
+  "enter_duty_message_players": "{adminGroup} {steamName} is in staff mode",
+  "exit_duty_message": "You have exited staff duty.",
+  "exit_duty_message_players": "%s %s has exited staff mode"
+}

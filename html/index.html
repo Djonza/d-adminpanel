@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveM Admin Meni</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="display: none;">
+    <div class="container" id="mainContainer">
+        <button id="closeButton" class="close-admin">Zatvori Meni</button>
+        <div class="wrapper">
+            <nav class="sidebar">
+                <h3>Admin Panel</h3>
+                <ul>
+                    <li onclick="showSection('players')">👥 Players</li>
+                    <li onclick="showSection('history')">🛠️ History</li>
+                    <li onclick="showSection('ban')">🛠️ Ban</li>
+                    <li onclick="showSection('logs')">📜 Server logs</li>
+                </ul>
+            </nav>
+
+            <div class="content">
+
+                <section id="players" class="section">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search player by name or id" onkeyup="filterPlayers()">
+                    </div>
+                    <div id="playerList" class="player-list">
+                        <!-- js -->
+                    </div>
+                </section>
+
+                <section id="logs" class="section active">
+                    <h2>Server logs</h2>
+                    <div class="log-controls">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="log-filter" data-type="INFO" checked>
+                            <span class="checkmark"></span>
+                            INFO
+                        </label>
+                    
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="log-filter" data-type="PLAYER_JOIN" checked>
+                            <span class="checkmark"></span>
+                            Join/Leave
+                        </label>
+                    
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="log-filter" data-type="PLAYER_DEATH" checked>
+                            <span class="checkmark"></span>
+                            Death
+                        </label>
+                    
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="log-filter" data-type="EXPLOSION" checked>
+                            <span class="checkmark"></span>
+                            Explosion
+                        </label>
+                    
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="log-filter" data-type="ADMIN" checked>
+                            <span class="checkmark"></span>
+                            Admin actions
+                        </label>
+                    </div>                    
+                    <div id="log-container" class="log-container"></div>
+                </section>
+
+                <section id="ban" class="section">
+                    <h2>Ban</h2>
+                    <!-- Ban -->
+                    <div id="banSection" class="punishment-section active">
+                        <h3>Ban player</h3>
+                        <input type="number" id="banPlayerId" placeholder="Player id">
+                        <input type="text" id="banReason" placeholder="Ban reason">
+                        <input type="number" id="banDuration" placeholder="Ban duration (days)">
+                        <button class="category-btn" onclick="submitBan()">Ban player</button>
+                    </div>
+            
+                </section>
+
+                <section id="history" class="section active">
+                    <h2>History</h2>
+                
+                    <div class="history-nav">
+                        <div class="nav-buttons">
+                            <button class="nav-btn active" data-target="bans">Bans</button>
+                            <button class="nav-btn" data-target="warnovi">Warns</button>
+                            <span class="nav-indicator"></span>
+                        </div>
+                
+                    <div class="history-container">
+                        <div id="bans" class="history-card">
+                            <h2>Banned players</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Player</th>
+                                        <th>Banned by</th>
+                                        <th>Reason</th>
+                                        <th>Ban date</th>
+                                        <th>Expiration date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="banTableBody"></tbody>
+                            </table>
+                        </div>
+                        
+                
+                        <div class="history-container">
+                        <div id="warnovi" class="history-card">
+                                <h2>Warns history</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Player</th>
+                                        <th>Warned by</th>
+                                        <th>Reason</th>
+                                        <th>Warn date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="warnTableBody">
+                                    <!-- js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <div id="playerModal" class="playerOptions-modal">
+        <div class="playerOptions-content">
+            <span class="close-btn" onclick="closePlayerModal()">&times;</span>
+            <h2 id="playerModalTitle">Opcije za Igrača</h2>
+            <div class="player-options">
+                <button class="modal-btn" onclick="gotoPlayer(currentPlayerId)">Goto</button>
+                <button class="modal-btn" onclick="bringPlayer(currentPlayerId)">Bring</button>
+                <button class="modal-btn" onclick="revivePlayer(currentPlayerId)">Revive</button>
+                <button class="modal-btn" onclick="healPlayer(currentPlayerId)">Heal</button>
+                <button class="modal-btn" onclick="slayPlayer(currentPlayerId)">Slay</button>
+                <button class="modal-btn" onclick="spectatePlayer(currentPlayerId)">Spectate</button>
+            </div>
+            <div class="chat-section">
+                <h3>Message this player</h3>
+                <textarea id="chatMessage" placeholder="Upiši poruku..."></textarea>
+                <button class="send-btn" onclick="sendMessageToPlayer(currentPlayerId)">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
